@@ -22,7 +22,7 @@ button{
     cursor: pointer;
 }
 
-#todos{
+#todos-container{
     display: grid;
     justify-content: center
 }
@@ -38,7 +38,7 @@ button{
     background-color: #7ed6df;
 }
 
-.todo.complete .text{
+.todo.completed .text{
     text-decoration-line: line-through
 }
 

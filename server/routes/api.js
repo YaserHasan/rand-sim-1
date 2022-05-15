@@ -3,7 +3,9 @@ const express = require('express');
 
 const router = express.Router();
 
-const todos = [];
+const todos = [{
+    id: 3, text: 'asdasdas', completed: true,
+}];
 let id = 1;
 
 router.get('/todos', function (req, res) {
@@ -12,7 +14,7 @@ router.get('/todos', function (req, res) {
 
 router.post('/todo', function (req, res) {
     const text = req.body.text;
-    const newTodo = { id: id++, text: text, complete: false };
+    const newTodo = { id: id++, text: text, completed: false };
 
     todos.push(newTodo);
     res.send(todos);
