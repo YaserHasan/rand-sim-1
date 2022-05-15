@@ -3,9 +3,7 @@ const express = require('express');
 
 const router = express.Router();
 
-const todos = [{
-    id: 3, text: 'asdasdas', completed: true,
-}];
+const todos = [];
 let id = 1;
 
 router.get('/todos', function (req, res) {
@@ -32,9 +30,13 @@ router.put('/todo/:todoID', function (req, res) {
 
 router.delete('/todo/:todoID', function (req, res) {
     const todoID = req.params.todoID;
-    todos.splice(todoID, 1);
-    console.log('hello');
+    let todoIdParsed = parseInt(todoID);
+    let todoList = todos.find((t) => t.id === todoIdParsed);
+  
+    let index = todos.indexOf(todoList);
+    todos.splice(index, 1);
     res.send(todos);
-})
+  });
+  
 
 module.exports = router;
