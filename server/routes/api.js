@@ -21,11 +21,14 @@ router.post('/todo', function (req, res) {
 })
 
 router.put('/todo/:todoID', function (req, res) {
-    const todoID = req.params.todoID;
+  const todoID = req.params.todoID;
+  let todoIdParsed = parseInt(todoID);
+  let todoList = todos.find((t) => t.id === todoIdParsed);
 
-    todos.find(t => t.id == todoID).completed = true;
-    res.send(todos);
-})
+  todoList.completed = !todoList.completed;
+
+  res.send(todos);
+});
 
 router.delete('/todo/:todoID', function (req, res) {
     const todoID = req.params.todoID;
