@@ -1,47 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>FullStack Todo</title>
     <!-- Google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
-    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <!-- Javascript -->
     <script defer src="node_modules/jquery/dist/jquery.js"></script>
     <script defer src="node_modules/axios/dist/axios.js"></script>
     <script defer src="node_modules/handlebars/dist/handlebars.js"></script>
-    <script defer src="todos_api.js"></script>
-    <script defer src="todos_model.js"></script>
-    <script defer src="todos_view.js"></script>
-    <script defer src="todos_controller.js"></script>
-</head>
+    <script defer src="./JS/todos_api.js"></script>
+    <script defer src="./JS/todos_model.js"></script>
+    <script defer src="./JS/todos_view.js"></script>
+    <script defer src="./JS/todos_controller.js"></script>
+  </head>
 
-<body>
-
+  <body>
     <form class="user-input" id="todo-form">
-        <input type="text" id="todo-input" placeholder="What's new?">
-        <button id="add-todo-btn" type="submit">Add</button>
+      <input type="text" id="todo-input" placeholder="What's new?" />
+      <button id="add-todo-btn" type="submit">Add</button>
     </form>
 
     <section id="todos-container">
-        <script id="todos-template" type="text/x-handlebars-template">
-            {{#each todos}}
-                <div data-id="{{ id }}" class="todo {{#if completed}} completed {{/if}}">
-                    <i class="fas fa-check-circle completed-btn"></i>
-                    <span class="text">{{ text }}</span>
-                    <span class="delete"><i class="fas fa-trash delete-btn"></i></span>
-                </div>
-            {{/each}}
-        </script>
+      <script id="todos-template" type="text/x-handlebars-template">
+        {{#each todos}}
+            <div data-id="{{ id }}" class="todo {{#if completed}} completed {{/if}}">
+                <i class="fas fa-check-circle completed-btn"></i>
+                <span class="text">{{ text }}</span>
+                <span class="delete"><i class="fas fa-trash delete-btn"></i></span>
+            </div>
+        {{/each}}
+      </script>
     </section>
-    
-</body>
-
+  </body>
 </html>
