@@ -19,7 +19,10 @@ router.post('/todo', function (req, res) {
 router.put('/todo/:todoID', function (req, res) {
   const todoID = req.params.todoID;
   let todoIdParsed = parseInt(todoID);
-  todos.find((t) => t.id === todoIdParsed).completed = true;
+  let todoList = todos.find((t) => t.id === todoIdParsed);
+
+  todoList.completed = !todoList.completed;
+
   res.send(todos);
 });
 
